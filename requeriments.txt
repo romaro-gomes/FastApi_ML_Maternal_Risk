@@ -9,4 +9,3 @@ imbalanced-learn
 xgboost
 catboost
 scikit-posthocs
--e .

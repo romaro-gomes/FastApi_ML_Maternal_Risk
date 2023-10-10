@@ -58,7 +58,7 @@ async def predict( request: Request,
 
     if prediction[0] == 0:
         pred='High Risk'
-    elif prediction[1]:
+    elif prediction[0] == 1:
         pred='Low Risk'
     else:
         pred='Medium Risk'

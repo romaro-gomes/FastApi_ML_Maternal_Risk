@@ -29,3 +29,10 @@ It was used in the development of a FastAPI application and its implementation i
 This project aims to be used as a portfolio but also to raise awareness about the risks many women still face during childbirth.
 
 While common in deprived regions, with the advancement of the internet and telecommunications, coupled with the Internet of Things, systems and monitoring tools could be created to assist doctors in monitoring patients in more problematic cases.
+
+## How use
+In your terminal: uvicorn app:app --reload
+
+Docker: docker run -p 80:80 maternal_risk_ml 
+
+![](maternal.gif)
