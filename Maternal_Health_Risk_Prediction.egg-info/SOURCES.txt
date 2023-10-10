@@ -1,0 +1,5 @@
+setup.py
+Maternal_Health_Risk_Prediction.egg-info/PKG-INFO
+Maternal_Health_Risk_Prediction.egg-info/SOURCES.txt
+Maternal_Health_Risk_Prediction.egg-info/dependency_links.txt
+Maternal_Health_Risk_Prediction.egg-info/top_level.txt

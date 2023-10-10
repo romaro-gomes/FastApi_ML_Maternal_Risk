@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %} Página Inicial{% endblock %}
+{% block content %}
+<div>
+<h1>Hello Doctor</h1>
+<h2>Here to assist in your clinical decisions!<br>
+    Is the new mom at risk?</h2>
+</div>
+<br>
+<div>
+    <p style="font-size: large; font-weight: bold;">Fill in the details:</p>
+</div>
+<form action="/predict" method="post" onsubmit="return validateFields()">
+    <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="text" class="form-control" name="age" placeholder="Values must be between 18 years and 99 years " id="age">
+    </div>
+    <div class="form-group">
+        <label for="systolic_bp">Systolic Blood Pressure:</label>
+        <input type="text" class="form-control" name="systolic_bp" placeholder="Values must be between 60 mmHg and 220 mmHg" id="systolic_bp">
+    </div>
+    <div class="form-group">
+        <label for="diastolic_bp">Diastolic Blood Pressure:</label>
+        <input type="text" class="form-control" name="diastolic_bp" placeholder="Values must be between 45 mmHg and 110 mmHg" id="diastolic_bp">
+    </div>
+    <div class="form-group">
+        <label for="bs">Blood Sugar Level:</label>
+        <input type="text" class="form-control" name="bs" placeholder="Values must be between 6 mmol/L and 20 mmol/L" id="bs">
+    </div>
+    <div class="form-group">
+        <label for="body_temp"> Body Temperature:</label>
+        <input type="text" class="form-control" name="body_temp" placeholder="Values must be between 95ºF and 110ºF" id="body_temp">
+    </div>
+    <div class="form-group">
+        <label for="heart_rate">Heart Rate:</label>
+        <input type="text" class="form-control" name="heart_rate" placeholder="Values must be between 7 bpm and 100 bpm" id="heart_rate">
+    </div>
+    
+    <br>
+    <br>
+    <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+
+<script>
+        function validateFields() {
+            var ageInput = document.getElementById("age");
+            var ageValue = ageInput.value.trim();            
+            var ageInt = parseInt(ageValue);
+
+            var systolicInput = document.getElementById("systolic_bp");
+            var systolicValue = systolicInput.value.trim();            
+            var systolicFloat = parseFloat(systolicValue);
+
+            var diastolicInput = document.getElementById("diastolic_bp");
+            var diastolicValue = diastolicInput.value.trim();            
+            var diastolicFloat = parseFloat(diastolicValue);
+
+            var bsInput = document.getElementById("bs");
+            var bsValue = bsInput.value.trim();            
+            var bsFloat = parseFloat(bsValue);
+
+            var bodyTempInput = document.getElementById("body_temp");
+            var bodyTempValue = bodyTempInput.value.trim();            
+            var bodyTempFloat = parseFloat(bodyTempValue);
+
+            var heartRateInput = document.getElementById("heart_rate");
+            var heartRateValue = heartRateInput.value.trim();            
+            var heartRateFloat = parseFloat(heartRateValue);
+
+            if (
+                ageValue === "" || 
+                isNaN(ageInt) || 
+                ageInt < 18 || 
+                ageInt > 99
+            ) {
+                alert("Age values must be between 18 and 99" );
+                ageInput.focus();
+                return false;
+            }
+
+            if (
+                systolicValue === "" || 
+                isNaN(systolicFloat) || 
+                systolicFloat < 60 || 
+                systolicFloat > 220
+            ) {
+                alert("Systolic blood pressure values must be between 60 and 220");
+                systolicInput.focus();
+                return false;
+            }
+
+            if (
+                diastolicValue === "" || 
+                isNaN(diastolicFloat) || 
+                diastolicFloat < 45 || 
+                diastolicFloat > 110
+            ) {
+                alert("Diastolic blood pressure values must be between 60 and 220");
+                diastolicInput.focus();
+                return false;
+            }
+
+            if (
+                bsValue === "" || 
+                isNaN(bsFloat) || 
+                bsFloat < 6 || 
+                bsFloat > 20
+            ) {
+                alert("Blood sugar values must be between 6 and 20");
+                bsInput.focus();
+                return false;
+            }
+
+            if (
+                bodyTempValue === "" || 
+                isNaN(bodyTempFloat) || 
+                bodyTempFloat < 95 || 
+                bodyTempFloat > 110
+            ) {
+                alert("Blood temperature values must be between 95 and 110");
+                bodyTempInput.focus();
+                return false;
+            }
+
+            if (
+                heartRateValue === "" || 
+                isNaN(heartRateFloat) || 
+                heartRateFloat < 7 || 
+                heartRateFloat > 100
+            ) {
+                alert("Heart rate Values must be between 7 and 100" );
+                heartRateInput.focus();
+                return false;
+            }         
+            return true;
+        }    
+</script>
+{% endblock %}
+

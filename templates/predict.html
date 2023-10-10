@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+    <h1>Proposed Diagnosis: {{ prediction }}</h1>
+    <br>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            Risk Levels Probabilities
+        </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Low Risk: {{ probability.split(' ')[0] }}</li>
+                <li class="list-group-item">Medium Risk: {{ probability.split(' ')[1] }}</li>
+                <li class="list-group-item">High Risk: {{ probability.split(' ')[2] }}</li>
+            </ul>
+    
+    </div>
+    <br>
+    <a href="/">Home</a>
+{% endblock %}
+

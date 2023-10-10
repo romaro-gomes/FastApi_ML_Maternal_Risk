@@ -1,0 +1,12 @@
+pandas
+matplotlib
+seaborn
+fastapi
+uvicorn
+mlflow
+python-multipart
+imbalanced-learn
+xgboost
+catboost
+scikit-posthocs
+-e .
